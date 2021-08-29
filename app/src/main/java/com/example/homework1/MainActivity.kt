@@ -6,8 +6,7 @@ import android.content.Intent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-
-
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,10 +17,19 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.reg)?.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
 
+        val duration = Toast.LENGTH_SHORT
 
-            //setResult(RESULT_OK, Intent().putExtra(EXTRA_MESSAGE, getString(R.string.app_name)))
-            //finish()
+        val arguments = intent.extras
+        if (arguments != null) {
+
+            val counter=arguments.getInt("counter")
+            val textReg=arguments.getString("registration")
+            val text =textReg+" "+counter.toString()
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
@@ -11,6 +12,18 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
+
+        /*
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("name", name)
+        intent.putExtra("company", company)
+        intent.putExtra("age", age)
+        startActivity(intent)
+
+         */
+
+        /*
         val textView = TextView(this)
         textView.textSize = 26f
         textView.setPadding(16, 16, 16, 16)
@@ -26,9 +39,25 @@ class SecondActivity : AppCompatActivity() {
             """.trimIndent()
         }
         setContentView(textView)
+
+         */
+
+        findViewById<Button>(R.id.button)?.setOnClickListener {
+            val nameText = findViewById<EditText>(R.id.name)
+            val companyText = findViewById<EditText>(R.id.company)
+            val ageText = findViewById<EditText>(R.id.age)
+            val name = nameText.text.toString()
+            val company = companyText.text.toString()
+            val age = ageText.text.toString().toInt()
+            val intent = Intent(this, ThirdActivity::class.java)
+            intent.putExtra("name", name)
+            intent.putExtra("company", company)
+            intent.putExtra("age", age)
+            startActivity(intent)
+        }
     }
 
-
+/*
     fun onClick(v: View?) {
         val nameText = findViewById<EditText>(R.id.name)
         val companyText = findViewById<EditText>(R.id.company)
@@ -36,10 +65,12 @@ class SecondActivity : AppCompatActivity() {
         val name = nameText.text.toString()
         val company = companyText.text.toString()
         val age = ageText.text.toString().toInt()
-        val intent = Intent(this, SecondActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("name", name)
         intent.putExtra("company", company)
         intent.putExtra("age", age)
         startActivity(intent)
     }
+
+ */
 }
