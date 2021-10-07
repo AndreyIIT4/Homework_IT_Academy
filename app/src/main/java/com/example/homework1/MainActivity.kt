@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null) {
-            Toast.makeText(applicationContext, data.getStringExtra("nameS"), Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, data.getStringExtra("nameS"), Toast.LENGTH_SHORT)
+                .show()
         }
     }
 }

@@ -17,6 +17,7 @@ class SecondActivity : AppCompatActivity() {
             val name = nameText.text.toString()
             val company = companyText.text.toString()
             val age = ageText.text.toString().toInt()
+
             Intent(this, ThirdActivity::class.java).apply {
                 putExtra("name", name)
                 putExtra("company", company)
