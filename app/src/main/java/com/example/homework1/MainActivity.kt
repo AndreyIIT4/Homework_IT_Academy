@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity(), AppContract {
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             setContentView(R.layout.activity_main)
-        }
-        else
-        {
+        } else {
             setContentView(R.layout.activity_main_land)
         }
         if (savedInstanceState == null) {
